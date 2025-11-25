@@ -1,14 +1,10 @@
 package com.jconf.demo.ai;
 
 import com.jconf.demo.ai.assistants.HybridAssistant;
-import dev.langchain4j.model.chat.ChatLanguageModel;
-import dev.langchain4j.rag.content.Content;
-import dev.langchain4j.rag.content.retriever.ContentRetriever;
-import dev.langchain4j.rag.query.Query;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-
+@Profile("azure")
 @Service
 public class RagHybridService {
 
