@@ -27,7 +27,7 @@ public class ObservedContentRetrieverConfig {
             ContentRetriever delegate = EmbeddingStoreContentRetriever.builder()
                     .embeddingStore(localEmbeddingStore)
                     .embeddingModel(ollamaEmbeddingModel)
-                    .maxResults(5)
+                    .maxResults(2)
                     .build();
 
             return new ContentRetriever() {
@@ -58,6 +58,19 @@ public class ObservedContentRetrieverConfig {
                         obs.highCardinalityKeyValue("rag.context.size",
                                 String.valueOf(contents.size()));
                         obs.highCardinalityKeyValue("rag.context.preview", preview);
+
+                        String sources = contents.stream()
+                                .map(content -> {
+                                    if (content == null || content.textSegment() == null) return "desconocido";
+                                    var meta = content.textSegment().metadata();
+                                    if (meta == null) return "desconocido";
+                                    String src = meta.getString("source");
+                                    return src != null ? src : "desconocido";
+                                })
+                                .distinct()
+                                .collect(Collectors.joining(","));
+
+                        obs.highCardinalityKeyValue("rag.context.sources", sources);
 
                         return contents;
                     } finally {
