@@ -25,7 +25,7 @@ public class AiModelsConfig {
         return OllamaChatModel.builder()
                 .baseUrl(OLLAMA_BASE_URL)
                 .modelName(OLLAMA_CHAT_MODEL)
-                .timeout(Duration.ofSeconds(60))
+                .timeout(Duration.ofSeconds(300))
                 .build();
     }
 
@@ -34,7 +34,7 @@ public class AiModelsConfig {
         return OllamaEmbeddingModel.builder()
                 .baseUrl(OLLAMA_BASE_URL)
                 .modelName(OLLAMA_EMBED_MODEL)
-                .timeout(Duration.ofSeconds(60))
+                .timeout(Duration.ofSeconds(300))
                 .build();
     }
 }
