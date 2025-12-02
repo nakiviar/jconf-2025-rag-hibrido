@@ -16,7 +16,7 @@
 
     <properties>
         <java.version>22</java.version>
-        <langchain4j.version>0.33.0</langchain4j.version>
+        <langchain4j.version>0.36.0</langchain4j.version>
         <maven.compiler.source>22</maven.compiler.source>
         <maven.compiler.target>22</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -88,6 +88,13 @@
             <groupId>io.opentelemetry</groupId>
             <artifactId>opentelemetry-exporter-otlp</artifactId>
         </dependency>
+
+        <dependency>
+            <groupId>com.azure</groupId>
+            <artifactId>azure-search-documents</artifactId>
+            <version>11.6.0</version>
+        </dependency>
+
     </dependencies>
 
 </project>
