@@ -3,7 +3,7 @@ package com.jconf.demo.ai;
 import com.jconf.demo.ai.assistants.HybridAssistant;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
-
+// no se usa
 @Profile("azure")
 @Service
 public class RagHybridService {

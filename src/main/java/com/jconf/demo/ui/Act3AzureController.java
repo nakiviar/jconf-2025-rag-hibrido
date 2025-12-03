@@ -4,10 +4,12 @@ import com.jconf.demo.ai.assistants.BankAssistant;
 import com.jconf.demo.dto.AskRequest;
 import com.jconf.demo.dto.AskResponse;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Profile;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/act3")
+@Profile("act3")
 public class Act3AzureController {
 
     private final BankAssistant assistant;
